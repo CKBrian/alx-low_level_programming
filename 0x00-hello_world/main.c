@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main(){
+int main(void)
+{
 	printf("HELLO from ALX");
-	return(0);
+	return (0);
 }
