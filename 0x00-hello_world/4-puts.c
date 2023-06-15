@@ -2,8 +2,9 @@
 
 /*
  * main prints "programming is like cuilding a multilingual puzzle
- * followed by a new line 
- * return 0*/
+ * followed by a new line
+ * return value 0
+ */
 
 int main(void)
 {
