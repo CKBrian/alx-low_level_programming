@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S $CFILE | objdump -d main.s
+gcc -S $CFILE | objdump -d main.s | awk '{print $2, $3}' | sed 's/ //g' | sed 's/\([0-9a-f]\{2\}\)/0\1 /g' | sed 's/^/ /' | sed 's/ $//' > main.s
