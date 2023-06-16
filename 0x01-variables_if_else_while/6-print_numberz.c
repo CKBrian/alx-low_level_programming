@@ -2,7 +2,6 @@
 
 /**
  * main - Prints "all single digits from 0 to 10 using putchar"
- * @i: First member
  * Return: 0
  *
  */
