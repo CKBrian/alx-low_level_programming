@@ -1,11 +1,9 @@
-int print_alphabet(void)
+void print_alphabet(void)
 {
-int z;
+char z;
 
-for (z = 97; z <= 122; z++)
+for (z = 'a'; z <= 'z'; z++)
 	{
 	putchar (z);
 	}
-putchar ('\n');
-return (0);
 }
