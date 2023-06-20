@@ -6,8 +6,13 @@
  * Return: value of last digit
  */
 
-int print_last_digit(int)
+int print_last_digit(int r)
 {
-	if (int lDigit % 10)
+	int lDigit = r % 10;
+
+	if (lDigit > 0)
+		{
+		_putchar (lDigit + '0');
 		return (lDigit);
+		}
 }
