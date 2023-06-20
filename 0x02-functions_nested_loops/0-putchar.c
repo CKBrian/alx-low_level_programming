@@ -10,7 +10,7 @@ int main(void)
 	char word[] = "_putchar";
 	int z;
 
-	for (z = 0; z < 9; z++)
+	for (z = 0; z < 8; z++)
 	{
 	putchar (word[z]);
 	}
