@@ -2,11 +2,11 @@
 
 /**
  * _abs - Writes absolute value of an integer
- * @int: Integer used to test for absolute value
+ * @a: Integer used to test for absolute value
  * Return: 0 always
  */
 
-int _abs(int)
+int _abs(int a)
 {
 	if (int a > 0)
 	{
