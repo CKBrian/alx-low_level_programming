@@ -2,13 +2,13 @@
 
 /**
  * print_last_digit - Writes last digit of a number
- * @int: Input character
+ * @r: Input character
  * Return: value of last digit
  */
 
 int print_last_digit(int r)
 {
-	int lDigit;
+	int lDigit, r;
 
 	lDigit = r % 10;
 
@@ -17,10 +17,6 @@ int print_last_digit(int r)
 		return (lDigit * -1);
 		_putchar (lDigit + '0');
 		}
-	else
-	{
-		_putchar (lDigit + '0');
-		return (lDigit);
-	}
-
+	_putchar (lDigit + '0');
+	return (lDigit);
 }
