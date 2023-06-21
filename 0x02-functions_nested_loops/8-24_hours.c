@@ -3,45 +3,32 @@
 /**
  * jack_bauer - Writes every minute of the day
  *
- * Return: 
+ * Return: 0 always
  */
 void jack_bauer(void)
 {
-	int h, m;
+	int h1, h2, m1, m2;
 
-	for (h = 0; h < 24; h++ )
+	for (h1 = 0; h1 <= 2; h1++ )
 	{
-		for (m = 0; m < 60; m++)
+		for (h2 = 0; h2 <= 9; h2++)
 		{
-		if (h < 10 && m < 10)
+		for (m1 = 0; m1 <= 5; m1++)
 		{
-			_putchar ('0');
-			_putchar (h + 60);
-			_putchar (':');
-			_putchar ('0');
-			_putchar (m + 60);
+			for (m2 = 0; m2 <= 9; m2++)
+			{
+				if(h1 != 2 && h2 != 4)
+				{
+				_putchar (h1 + 48);
+				_putchar (h2 + 48);
+				_putchar (':');
+				_putchar (m1 + 48);
+				_putchar (m2 + 48);
+				_putchar ('\n');
+				}
+
+			}
 		}
-		else if (h < 10 && m > 10)
-		{
-		_putchar ('0');
-		_putchar (h + 60);
-		_putchar (':');
-		_putchar (m + 60);
-		}
-		else if (h > 10 && m  < 10)
-		{
-		_putchar (h + 60);
-		_putchar (':');
-		_putchar ('0'); 
-		_putchar (m + 60);
-		}
-		else
-		{
-		_putchar (h + 60);
-		_putchar (':');
-		_putchar (m + 60);
-		}
-		_putchar ('\n');
 		}
 	}
 }
