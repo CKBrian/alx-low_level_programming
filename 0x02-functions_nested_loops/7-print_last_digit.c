@@ -8,7 +8,9 @@
 
 int print_last_digit(int r)
 {
-	int lDigit = r % 10;
+	int lDigit;
+
+	lDigit = r % 10;
 
 	if (lDigit < 0)
 		{
@@ -20,4 +22,5 @@ int print_last_digit(int r)
 		_putchar (lDigit + '0');
 		return (lDigit);
 	}
+
 }
