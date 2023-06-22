@@ -10,9 +10,11 @@ void print_triangle(int size)
 {
 	int height, base, i;
 
-	for (height = 0; height <= size; height++)
+	for (height = 0; height < size; height++)
 	{
-		for (base = size; base >= height; base--)
+		if (size != 0)
+		{
+		for (base = size; base > height; base--)
 		{
 			_putchar (' ');
 		}
@@ -20,6 +22,7 @@ void print_triangle(int size)
 		for (; i <= size; i++)
 		{
 		_putchar ('#');
+		}
 		}
 		_putchar ('\n');
 	}
