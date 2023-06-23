@@ -12,15 +12,15 @@ void print_triangle(int size)
 
 	if (size != 0)
 	{
-	for (height = 0; height <= size; height++)
+	for (height = 1; height <= size; height++)
 	{
 
-		for (base = size; base >= height; base--)
+		for (base = size; base > height; base--)
 		{
 			_putchar (' ');
 		}
 		i = size - base;
-		for (; i <= size; i++)
+		for (; i < size; i++)
 		{
 		_putchar ('#');
 		}
