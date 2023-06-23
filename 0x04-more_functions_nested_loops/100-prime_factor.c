@@ -13,14 +13,12 @@ int main(void)
 	while (num % 2 == 0)
 	{
 		num = num / 2;
-		printf("2,");
 	}
 
 	for (j = 2; j < num; j++)
 	{
 		if (num % j == 0)
 		{
-			printf("%ld,", j);
 			num = num / j;
 		}
 	}
