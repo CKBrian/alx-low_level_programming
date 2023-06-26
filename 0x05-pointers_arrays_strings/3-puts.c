@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * puts - Writes a string to stdout
+ * _puts - Writes a string to stdout
  * @str: String
  * Return: Void
  */
