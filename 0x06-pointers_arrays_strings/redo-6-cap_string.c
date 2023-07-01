@@ -6,8 +6,24 @@
  */
 char *cap_string(char *str)
 {
-	int i;
+	int i, j, k;
 
+	/* Remove '\t' */
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] == '\t')
+		{
+			for (j = 0; str[j] != '\t'; j++)
+			{}
+
+			str[j] = ' ';
+			k = j--;
+			for (; k > j && str[k] != '\0'; k++)
+			{
+				str[k + 1] = str[k + 1];
+			}
+		}
+	}
 	/* Capitalize string */
 	for (i = 0; str[i] != '\0'; i++)
 	{
