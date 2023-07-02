@@ -6,20 +6,20 @@
  */
 char *leet(char *s)
 {
-	int i;
-	char *a, *b, *c, *d, *e;
+	int i, k;
+	char lower[] = {'a', 'e', 'o', 't', 'l'};
+	char upper[] = {'A', 'E', 'O', 'T', 'L'};
+	char encode[] = {'4', '3', '0', '7', '1'};
 
-	for (i = 0; s[i]; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if ((s[i] == 'a' || s[i] == 'A') || (s[i] == 'e' || s[i] == 'E') ||
-			(s[i] == 'o' || s[i] == 'O') || (s[i] == 't' || s[i] == 'T') ||
-			(s[i] == 'l' || s[i] == 'L'))
+		for (k = 0; k < 5; k++)
 		{
-			(s[i] == 'a' || s[i] == 'A') = '4';
-			(s[i] == 'e' || s[i] == 'E') = '3';
-			(s[i] == 'o' || s[i] == 'O') = '0';
-			(s[i] == 't' || s[i] == 'T') = '7';
-			(s[i] == 'l' || s[i] == 'L') = '1';
+			if (s[i] == lower[k] || s[i] == upper[k])
+			{
+				s[i] = encode[k];
+				break;
+			}
 		}
 	}
 	return (s);
