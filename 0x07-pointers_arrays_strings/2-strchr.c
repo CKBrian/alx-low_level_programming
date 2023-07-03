@@ -14,6 +14,5 @@ char *_strchr(char *s, char c)
 		if (s[k] == c)
 			return (s + k);
 	}
-	/* Casting a null pointer to 0 '(void *)0' or '(char *)0'*/
 	return ((char *)0);
 }
