@@ -6,12 +6,20 @@
  */
 char *cap_string(char *str)
 {
-	int i;
+	int i, k;
+	char period[] = {' ', ';', '.', '!', ',', '?', '"', '(', ')', '{', '}', '\t', '\n'};
 
 	/* Capitalize string */
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((str[i - 1] == ',' ||
+		for (k = 0; k < 13; k++)
+		{
+			if (str[i] == period[k] && (str[i] >= 'a' && str[i] <= 'z'))
+			{
+				str[i + 1] -= 32;
+			}
+		}
+		/*if ((str[i - 1] == ',' ||
 		str[i - 1] == ';' ||
 		str[i - 1] == '.' ||
 		str[i - 1] == '!' ||
@@ -27,7 +35,7 @@ char *cap_string(char *str)
 		(str[i] >= 'a' && str[i] <= 'z'))
 	{
 		str[i] -= 32;
-	}
+	}*/
 	}
 	return (str);
 }

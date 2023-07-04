@@ -18,7 +18,7 @@ char *leet(char *s)
 			if (s[i] == lower[k] || s[i] == upper[k])
 			{
 				s[i] = encode[k];
-				break;
+				/*break;*/
 			}
 		}
 	}
