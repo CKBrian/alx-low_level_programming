@@ -16,10 +16,7 @@ unsigned int _strspn(char *s, char *accept)
 		if (s[i] == accept[k])
 		{
 			size++;
-			break;
 		}
-		if (accept[k] == '\0')
-			break;
 		}
 	}
 	return (size);
