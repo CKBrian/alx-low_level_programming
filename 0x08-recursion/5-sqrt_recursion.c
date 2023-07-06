@@ -13,7 +13,6 @@ int _sqrt(int n, int a)
 		return (n);
 	return (_sqrt(n - 1, a));
 	return (-1);
-
 }
 /**
  * _sqrt_recursion - Returns square root of a number
