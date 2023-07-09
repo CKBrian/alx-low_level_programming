@@ -5,7 +5,7 @@
  * @i: Number of digits contained in n
  * Return: Nothing
  */
-void _print(int n, int i)
+/*void _print(int n, int i)
 {
 	int num, j = i, dvs = 1;
 
@@ -29,7 +29,7 @@ void _print(int n, int i)
 	_putchar (num + '0');
 	n = n - (num * dvs);
 	_print(n, i - 1);
-}
+}*/
 /**
  * print_number - Calls function _print
  * @n: Number to be printed
