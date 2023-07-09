@@ -1,11 +1,34 @@
 #include "main.h"
 /**
+ * print_number - Calls function _print
+ * @n: Number to be printed
+ * Return: Nothing
+ */
+void _print(int n, int i);
+void print_number(int n)
+{
+	int i, div = n;
+
+	if (n == 0)
+	{
+		_putchar ('0');
+		return;
+	}
+
+	for (i = 0; div != '\0'; i++)
+	{
+		div /= 10;
+	}
+	_print(n, i);
+	_putchar ('\n');
+}
+/**
  * _print - Prints number n ueing recursion
  * @n: Number to be printed
  * @i: Number of digits contained in n
  * Return: Nothing
  */
-/*void _print(int n, int i)
+void _print(int n, int i)
 {
 	int num, j = i, dvs = 1;
 
@@ -29,26 +52,4 @@
 	_putchar (num + '0');
 	n = n - (num * dvs);
 	_print(n, i - 1);
-}*/
-/**
- * print_number - Calls function _print
- * @n: Number to be printed
- * Return: Nothing
- */
-void print_number(int n)
-{
-	int i, div = n;
-
-	if (n == 0)
-	{
-		_putchar ('0');
-		return;
-	}
-
-	for (i = 0; div != '\0'; i++)
-	{
-		div /= 10;
-	}
-	_print(n, i);
-	_putchar ('\n');
 }
