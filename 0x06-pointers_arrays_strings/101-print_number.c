@@ -1,13 +1,13 @@
 #include "main.h"
 /**
- * print_number - Calls function _print
+ * print_number - Prints a number using _putchar function alone
  * @n: Number to be printed
  * Return: Nothing
  */
-void _print(int n, int i);
 void print_number(int n)
 {
-	int i, div = n;
+	int i, m, div = n;
+	int num, j = i, dvs = 1;
 
 	if (n == 0)
 	{
@@ -19,19 +19,10 @@ void print_number(int n)
 	{
 		div /= 10;
 	}
-	_print(n, i);
-	_putchar ('\n');
-}
-/**
- * _print - Prints number n ueing recursion
- * @n: Number to be printed
- * @i: Number of digits contained in n
- * Return: Nothing
- */
-void _print(int n, int i)
-{
-	int num, j = i, dvs = 1;
-
+	m = i;
+	j = i;
+	for (; m > 0; m--)
+	{
 	if (i == 1)
 	{
 		num = n % 10;
@@ -42,6 +33,18 @@ void _print(int n, int i)
 	{
 		n *= -1;
 		_putchar ('-');
+	}
+	while (j > 1)
+	{
+		dvs *= 10;
+		j--;
+	}
+	num = n / dvs;
+	_putchar (num + '0');
+	n = n - (num * dvs);
+	i--;
+	}
+}
 	}
 	while (j > 1)
 	{
