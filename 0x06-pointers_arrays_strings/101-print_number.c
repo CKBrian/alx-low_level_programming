@@ -7,7 +7,7 @@
 void print_number(int n)
 {
 	int i, m, div = n;
-	int num, j = i, dvs = 1;
+	int num, j, dvs = 1;
 
 	if (n == 0)
 	{
@@ -44,15 +44,4 @@ void print_number(int n)
 	n = n - (num * dvs);
 	i--;
 	}
-}
-	}
-	while (j > 1)
-	{
-		dvs *= 10;
-		j--;
-	}
-	num = n / dvs;
-	_putchar (num + '0');
-	n = n - (num * dvs);
-	_print(n, i - 1);
 }
