@@ -7,7 +7,7 @@
  */
 char **strtow(char *str)
 {
-	int i, j, l, size, word, len = 0, k = 0;
+	int i, j, l, size, word = 0, len = 0, k = 0;
 	char **s;
 
 	if (str == NULL || str[0] == '\0')
@@ -33,7 +33,7 @@ char **strtow(char *str)
 
 	for (i = 0; i < k; i++)
 	{
-		while (str[len] == ' ' || str[len] == '\n')
+		while (str[len] == ' ' || str[len] == '\n'|| str[len] == '\t')
 			len++;
 		for (j = len; !(str[j] == ' ' || str[j] == '\0'); j++)
 		{}
@@ -46,9 +46,10 @@ char **strtow(char *str)
 			s[i][l] = str[len];
 			len++;
 		}
-		s[i][l] = '\0';
+	s[i][l] = '\0';
+	len = j;
 
 	}
-	/* s[k] = '\0';*/
+	s[k] = ((char *)NULL);
 	return (s);
 }
