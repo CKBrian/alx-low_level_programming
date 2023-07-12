@@ -1,17 +1,13 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- * strtow - Splits an array of strings into words
+ * arrsize - Find  the size of array of arrays
  * @str: String array to be split
- * Return: Pointer to astring otherwise NULL
+ * Return: k otherwise 0
  */
-char **strtow(char *str)
+int arrSize(char *str)
 {
-	int i, j, l, size, word = 0, len = 0, k = 0;
-	char **s;
-
-	if (str == NULL || *str == '\0' || str[0] == ' ')
-		return ((void *)0);
+	int i, word = 0, k = 0;
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
@@ -26,6 +22,23 @@ char **strtow(char *str)
 		}
 
 	}
+	return (k);
+
+}
+/**
+ * strtow - Splits an array of strings into words
+ * @str: String array to be split
+ * Return: Pointer to astring otherwise NULL
+ */
+char **strtow(char *str)
+{
+	int i, j, l, size, len = 0, k = 0;
+	char **s;
+
+	if (str == NULL || str[0] == '\0')
+		return ((void *)0);
+
+	arrSize(str);
 	if (k == 0)
 		return ((void *)0);
 
