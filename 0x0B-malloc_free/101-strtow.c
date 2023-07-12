@@ -10,7 +10,7 @@ char **strtow(char *str)
 	int i, j, l, size, word, len = 0, k = 0;
 	char **s;
 
-	if (str == NULL || str[0] == '\0')
+	if (str == NULL || *str == '\0' || str[0] == ' ')
 		return ((void *)0);
 
 	for (i = 0; str[i] != '\0'; i++)
