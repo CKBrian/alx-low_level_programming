@@ -42,7 +42,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		}
 		else
 		{
-		for (i = 0; ((char *)ptr)[i] != '\0'; i++)
+		for (i = 0; i < old_size; i++)
 			p[i] = ((char *)ptr)[i];
 		}
 	}
