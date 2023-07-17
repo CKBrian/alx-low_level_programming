@@ -1,5 +1,3 @@
-#ifndef DOG_H
-#define DOG_H
 /**
  * struct dog - Structure that stores dog age name and owner details
  * @name: Pointer to dog name string
@@ -12,4 +10,3 @@ struct dog
 	float age;
 	char *owner;
 };
-#endif /* DOG_H */
