@@ -6,6 +6,7 @@
  * @age: Age of dog
  * @owner: Pointer to dog owner string
  */
+#include <stdlib.h>
 struct dog
 {
 	char *name;

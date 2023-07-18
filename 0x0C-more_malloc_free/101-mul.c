@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int num1, num2, mul, len, i, j, carry = 0;
+	int num1, num2, mul, len, i, j, sum, carry = 0;
 	char *product;
 
 	if (argc == 3 && (*argv[1] >= '0' && *argv[1] <= '9') &&
@@ -25,6 +25,11 @@ int main(int argc, char *argv[])
 	product = malloc(sizeof(*product) * (len + 1));
 	if (product == NULL)
 		return (1);
+	/* Initialize with 0 */
+	for (i = 0; i < len; i++)
+	{
+		product[i] = '0';
+	}
 	/* Multiplication function argv[1] = 25 & argv[2] = 32*/
 	product[len] = '\0';
 	num1--;
@@ -37,20 +42,23 @@ int main(int argc, char *argv[])
 			mul = (argv[1][i] - '0') * (argv[2][j] - '0');
 			if (mul > 9)
 			{
-				product[len] = carry + mul%10 + '0';
+				sum = (product[len] - '0') + carry + mul%10;
+				product[len] = sum + '0';
 				carry = mul/10;
 				len--;
 
 			}
 			else
 			{
-				product[len] = carry + mul + '0';
+				sum = (product[len] - '0') + carry + mul;
+				product[len]= sum + '0';
 				len--;
 			}
 
 		}
 	product[len] = carry + '0';
-	len++;
+	carry = 0;
+	len += 2;
 	
 	}
 	}
