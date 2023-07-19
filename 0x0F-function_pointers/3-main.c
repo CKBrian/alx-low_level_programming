@@ -1,4 +1,6 @@
 #include "3-calc.h"
+#include "string.h"
+#define NON_NUM(num) (strlen(num) != strspn(num, "0123456789"))
 /**
  * main - Prints result of the operation
  * @argc: Number of arguments
@@ -9,7 +11,7 @@ int main(int argc, char *argv[])
 {
 	int result;
 
-	if (argc != 4)
+	if (argc != 4 || (NON_NUM(argv[1]) || NON_NUM(argv[3])))
 	{
 		printf("Error\n");
 		exit(98);
