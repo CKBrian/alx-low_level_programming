@@ -8,9 +8,7 @@ void print_all(const char * const format, ...)
 {
 	int j = 0, k = 0;
 	va_list arg;
-	char *specifier = "cifs";
-	char *st;
-	char brk[3] = "";
+	char *st, *brk = "", *specifier = "cifs";
 
 	va_start(arg, format);
 	while (format[j] != '\0')
@@ -45,8 +43,7 @@ void print_all(const char * const format, ...)
 				continue;
 			}
 		}
-		brk[0] = ',';
-		brk[1] = ' ';
+		brk = ", ";
 		k++;
 	}
 	j++;
