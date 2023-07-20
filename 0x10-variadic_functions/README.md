@@ -2,12 +2,12 @@
 
 ## Table of Contents
 
-- [Introduction] (#introduction)
-- [Files] (#files)
+- [Introduction](#introduction)
+- [Files](#files)
 - [Task Description](Task-description)
 - [How to Use](#how-to-use)
-- [Contribution Guidelines] (#contribution-guidelines)
-- [Licence] (#licence)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Licence](#licence)
 
 ## Introduction
 
