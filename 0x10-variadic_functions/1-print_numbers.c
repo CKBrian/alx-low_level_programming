@@ -18,17 +18,14 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	{
 	if (separator == NULL)
 	{
-		if (i == (n - 1))
-			printf("%d", va_arg(write, unsigned int));
-		else
-			printf("%d ", va_arg(write, unsigned int));
+		printf("%d", va_arg(write, unsigned int));
 	}
 	else
 	{
 	if (i == (n - 1))
 		printf("%d", va_arg(write, unsigned int));
 	else
-		printf("%d%c ", (va_arg(write, unsigned int)), *separator);
+		printf("%d%c", (va_arg(write, unsigned int)), *separator);
 	}
 	}
 	va_end(write);
