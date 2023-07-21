@@ -25,7 +25,11 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < byte; i++)
 	{
-		printf("%02x ", adress[i]);
+		if (i == 0)
+			printf("%02x", adress[i]);
+		else
+			printf(" %02x", adress[i]);
+		
 	}
 	printf("\n");
 	return (0);
