@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	unsigned char *adress = __builtin_return_address(0);
 	int i, byte = atoi(argv[1]);
 
-	if (argc == 2)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
