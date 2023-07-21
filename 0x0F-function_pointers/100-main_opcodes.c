@@ -8,9 +8,9 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, byte = atoi(argv[1]);
+	int i, byte;
 
-	if (argc != 2)
+	if (argc == 1 || argc > 2)
 	{
 		printf("Error\n");
 		exit(1);
@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(2);
 	}
+	byte = atoi(argv[1]);
 
 	for (i = 0; i < byte; i++)
 	{
