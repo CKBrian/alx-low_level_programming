@@ -8,7 +8,6 @@
  */
 int main(int argc, char *argv[])
 {
-	unsigned char *adress = __builtin_return_address(0);
 	int i, byte = atoi(argv[1]);
 
 	if (argc != 2)
@@ -26,9 +25,10 @@ int main(int argc, char *argv[])
 	for (i = 0; i < byte; i++)
 	{
 		if (i == 0)
-			printf("%02x", adress[i]);
+			printf("%02hhx", *((char *)main + i));
 		else
-			printf(" %02x", adress[i]);
+			printf(" %02hhx", *((char *)main + i));
+			/*printf(" %p", ((void *)main) + i);*/
 	}
 	printf("\n");
 	return (0);
