@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
 			printf("%02x", adress[i]);
 		else
 			printf(" %02x", adress[i]);
-		
 	}
 	printf("\n");
 	return (0);
