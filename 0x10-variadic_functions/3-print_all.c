@@ -31,7 +31,8 @@ void print_all(const char * const format, ...)
 			case 's':
 				{st = va_arg(arg, char *);
 				if (st == NULL)
-					printf("%s(nil)", brk);
+				{ printf("%s(nil)", brk);
+					break; }
 				printf("%s%s", brk, st);
 				break;
 				}
@@ -41,8 +42,7 @@ void print_all(const char * const format, ...)
 			}
 		brk = ", ";
 		}
-		k++;
-	}
+		k++; }
 	j++; }
 	printf("\n");
 	va_end(arg);
