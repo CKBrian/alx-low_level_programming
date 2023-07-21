@@ -19,8 +19,7 @@ void print_all(const char * const format, ...)
 		if (format[j] == specifier[k])
 		{
 			switch (format[j])
-			{
-			case 'c':
+			{case 'c':
 				printf("%s%c", brk, va_arg(arg, int));
 				break;
 			case 'i':
@@ -30,8 +29,7 @@ void print_all(const char * const format, ...)
 				printf("%s%f", brk, va_arg(arg, double));
 				break;
 			case 's':
-				{
-				st = va_arg(arg, char *);
+				{st = va_arg(arg, char *);
 				if (st == NULL)
 					printf("%s(nil)", brk);
 				printf("%s%s", brk, st);
@@ -45,8 +43,7 @@ void print_all(const char * const format, ...)
 		brk = ", ";
 		k++;
 	}
-	j++;
-	}
+	j++; }
 	printf("\n");
 	va_end(arg);
 }
