@@ -9,6 +9,8 @@ int sum_listint(listint_t *head)
 	int sum = 0;
 	listint_t *temp = head;
 
+	if (head == NULL)
+		return (sum);
 	while (temp->next != NULL)
 	{
 		sum += temp->n;
