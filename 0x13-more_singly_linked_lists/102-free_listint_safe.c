@@ -7,7 +7,7 @@
 size_t free_listint_safe(listint_t **h)
 {
 	listint_t *temp = NULL, *fast = NULL, *slow = NULL, *temp2 = NULL;
-	size_t nodes = 0, is_loop = 0;
+	size_t nodes = 0, is_loop = 0, loop = 0;
 
 	if (h == NULL)
 		return (nodes);
@@ -16,7 +16,7 @@ size_t free_listint_safe(listint_t **h)
 	temp2 = *h;
 	while (*h != NULL)
 	{
-		if (fast != NULL && temp2->next != NULL)
+		if (loop == 0 && fast != NULL && temp2->next != NULL)
 		{
 			if (is_loop == 1)
 			{
@@ -25,8 +25,10 @@ size_t free_listint_safe(listint_t **h)
 				slow = slow->next; }
 			else
 			{
-				fast = fast->next->next;
-				slow = slow->next; }
+			fast = fast->next->next;
+			if (fast->next == NULL || fast->next->next == NULL)
+				loop = 1;
+			slow = slow->next; }
 			if (fast == slow)
 			{
 				if (is_loop == 1)
@@ -34,8 +36,7 @@ size_t free_listint_safe(listint_t **h)
 				else
 				{
 					is_loop = 1;
-					slow = *h; }
-			}
+					slow = *h; } }
 		}
 		else
 		{
