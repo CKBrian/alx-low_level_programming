@@ -41,7 +41,9 @@ size_t print_listint_safe(const listint_t *head)
 		nodes++;
 	}
 	else
+	{
+		printf("[%p] %d\n", (void *)temp, temp->n);
 		printf("-> [%p] %d\n", (void *)temp, temp->n);
-
+		nodes++; }
 	return (nodes);
 }
