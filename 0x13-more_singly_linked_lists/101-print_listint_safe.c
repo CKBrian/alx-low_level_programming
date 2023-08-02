@@ -6,44 +6,41 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *temp = head, *fast = head, *slow = head;
-	size_t nodes = 0;
+	const listint_t *temp = head, *fast = head, *slow = head, *temp2 = head;
+	size_t nodes = 0, is_loop = 0, loop = 0;
 
 	if (head == NULL)
 		return (nodes);
-	while (temp->next != head)
+	while (head != NULL)
 	{
-		if (head->next == NULL)
-			break;
-		if (fast != NULL)
+		if (loop == 0 && fast != NULL && temp2->next != NULL)
 		{
-			slow = slow->next;
+			if (is_loop == 1)
+			{
+				temp2 = fast;
+				fast = fast->next;
+				slow = slow->next; }
+			else
+			{
 			fast = fast->next->next;
-		}
-		printf("[%p] %d\n", (void *)temp, temp->n);
-		temp = temp->next;
-		nodes++;
-		if (temp == NULL)
-			return (nodes);
-		else if (slow == fast)
+			slow = slow->next; }
+			if (fast == slow)
+			{
+				if (is_loop == 1)
+					loop = 1;
+				else
+				{
+					is_loop = 1;
+					slow = head; } } }
+		else
 		{
-			printf("[%p] %d\n", (void *)temp, temp->n);
-			temp = temp->next;
-			nodes++;
-			break;
-		}
-	}
-	if (temp != temp->next)
-	{
 		printf("[%p] %d\n", (void *)temp, temp->n);
 		temp = temp->next;
-		printf("-> [%p] %d\n", (void *)temp, temp->n);
-		nodes++;
-	}
-	else
-	{
+		if (temp->next == temp2)
+		{
 		printf("[%p] %d\n", (void *)temp, temp->n);
-		printf("-> [%p] %d\n", (void *)temp, temp->n);
-		nodes++; }
-	return (nodes);
-}
+		printf("[%p] %d\n", (void *)(temp->next), (temp->next->n));
+		printf("-> [%p] %d\n", (void *)slow, slow->n);
+		nodes++;
+		break; } } }
+	return (nodes); }
