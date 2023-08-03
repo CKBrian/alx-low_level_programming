@@ -1,4 +1,4 @@
-# __C - More singly linked lists__
+# __C - Bit manipulation__
 
 
 - [Introduction](#introduction)
