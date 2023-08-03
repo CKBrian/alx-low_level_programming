@@ -7,21 +7,25 @@
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int i, track, clear = 1;
+	unsigned long int i, track, test, clear = 1;
 
 	if (index > 63)
 		return (-1);
 
 	track = *n;
-	for (i = 0; i < index; i++)
+	test = *n >> index;
+	if (test & 1)
 	{
-		clear *= 2;
+		for (i = 0; i < index; i++)
+		{
+			clear *= 2;
+		}
+		if (clear > track)
+			track = 0;
+		else
+			track -= clear;
+		*n = track;
 	}
-	if (clear > track)
-		track = 0;
-	else
-		track -= clear;
-	*n = track;
 
 	return (1);
 }
