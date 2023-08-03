@@ -9,7 +9,7 @@ void print_binary(unsigned long int n)
 	unsigned long int track, flag;
 	int span, i, is_bit = 0;
 
-	span = (sizeof(int) * 8) - 1;
+	span = 31;
 	track = 1 << (span - 1);
 	for (i = 0; i < span; i++)
 	{
