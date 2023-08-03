@@ -6,25 +6,22 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int track, flag;
-	int span, i, is_bit = 0;
+	unsigned long int track;
+	int i, is_bit = 0;
 
-	span = 31;
-	track = 1 << (span - 1);
-	for (i = 0; i < span; i++)
+	for (i = 63; i >= 0; i--)
 	{
-		flag = (n & track);
-		if (flag == track)
+		track = n >> i;
+		if (track == 1)
 			is_bit = 1;
-		else if (is_bit == 0 && i == (span - 1))
+		else if (is_bit == 0 && i == 0)
 			_putchar('0');
 		if (is_bit == 1)
 		{
-			if (flag == track)
+			if (track & 1)
 				_putchar('1');
 			else
 				_putchar('0');
 		}
-		track >>= 1;
 	}
 }
