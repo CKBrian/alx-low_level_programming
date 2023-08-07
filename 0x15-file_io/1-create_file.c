@@ -11,29 +11,25 @@ int create_file(const char *filename, char *text_content)
 
 	if (filename == NULL)
 		return (-1);
-	if (text_content == NULL)
-	{
-		*text_content = '\0';
-		slen++;
-	}
-	else
-	{
-		for (slen = 0; text_content[slen] != '\0'; slen++)
-		{}
-	}
-
 	fdo = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
 	if (fdo < 0)
 	{
 		close(fdo);
 		return (-1);
 	}
-	fdw = write(fdo, text_content, slen);
-	if (fdw < 0)
+	if (text_content != NULL)
 	{
-		close(fdo);
-		return (-1);
+		for (slen = 0; text_content[slen] != '\0'; slen++)
+		{}
+
+		fdw = write(fdo, text_content, slen);
+		if (fdw < 0)
+		{
+			close(fdo);
+			return (-1);
+		}
 	}
+	text_content[slen] = '\0';
 
 	close(fdo);
 	return (1);
