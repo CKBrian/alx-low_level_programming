@@ -1,9 +1,9 @@
 #include "main.h"
 /**
  * main - copies the content of a file to another file
- * @argc: arument count
- * @argv: pointer to filr names argumrnts
- * Return: exit success
+ * @argc: agrument count
+ * @argv: pointer to file names arguments
+ * Return: 0 always
  */
 int main(int argc, char **argv)
 {
@@ -46,4 +46,4 @@ int main(int argc, char **argv)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", (close(fdo2)));
 		exit(100); }
-	return (EXIT_SUCCESS); }
+	return (0); }
