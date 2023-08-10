@@ -179,7 +179,7 @@ int main(int argc, char **argv)
 			elf_h.e_ident[EI_VERSION]);
 	print_elf_os_abi(&elf_h);
 	print_elf_type(&elf_h);
-	printf("  Entry point address:             %lu\n", elf_h.e_entry);
+	printf("  Entry point address:             %#lx\n", elf_h.e_entry);
 	close(fdo);
 	return (EXIT_SUCCESS);
 }
