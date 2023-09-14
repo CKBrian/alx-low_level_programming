@@ -11,13 +11,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *temp = *h, *newnode = NULL;
 	unsigned int index = 0;
 
-	if (temp == NULL)
-		return (NULL);
-
 	newnode = malloc(sizeof(dlistint_t));
 	if (newnode == NULL)
 		return (NULL);
 	newnode->n = n;
+	if (temp == NULL)
+		return (newnode);
 
 	while (temp != NULL)
 	{
