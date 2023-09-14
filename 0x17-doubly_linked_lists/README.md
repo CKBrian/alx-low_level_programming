@@ -3,8 +3,8 @@
 This directory contains C files related to doubly linked lists task. The tasks involves implementing C functions that use doubly linked lists.
 
 ## Introduction
-In this task, we explore the usage of doubly linked lists in C, which allows for a way to store a function's address and call the function indirectly as an argument in another function. It can also be used to dynamically select a function to call at runtime based on certain conditions.
-The tasks involve using doubly linked lists to display different instances of usage in the different c files.
+In this task, we explore the usage of doubly linked lists in C, which allows for a way to create a list that can be traversed in both foward and backward directions.
+The tasks involve creating functions that traverse and allow manipulation of a doubly linked lists.
 
 ## Files
 
