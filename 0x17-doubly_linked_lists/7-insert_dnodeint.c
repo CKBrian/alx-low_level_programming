@@ -23,7 +23,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		if (index == idx)
 		{
-			printf("--%d--\n", temp->n);
 			newnode->next = temp;
 			newnode->prev = temp->prev;
 			if (idx == 0)
@@ -31,6 +30,13 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			else
 				temp->prev->next = newnode;
 			temp->prev = newnode;
+			return (*h);
+		}
+		else if (temp->next == NULL && idx == index + 1)
+		{
+			newnode->next = NULL;
+			newnode->prev = temp;
+			temp->next = newnode;
 			return (*h);
 		}
 		temp = temp->next;
