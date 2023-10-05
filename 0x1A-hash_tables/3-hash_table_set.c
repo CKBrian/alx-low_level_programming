@@ -13,14 +13,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	index = key_index((const unsigned char *)key, ht->size);
 
-	if(!(temp = malloc(sizeof(hash_node_t))))
+	temp = malloc(sizeof(hash_node_t));
+	if (!temp)
 		return (0);
-	if(!(temp->key = malloc(sizeof(hash_node_t))))
+	temp->key = malloc(sizeof(hash_node_t));
+	if (!temp->key)
 	{
 		free(temp);
 		return (0);
 	}
-	if(!(temp->value = malloc(sizeof(hash_node_t))))
+	temp->value = malloc(sizeof(hash_node_t));
+	if (!temp->value)
 	{
 		free(temp->key);
 		free(temp);
