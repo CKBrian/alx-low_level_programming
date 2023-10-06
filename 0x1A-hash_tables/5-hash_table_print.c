@@ -16,16 +16,10 @@ void hash_table_print(const hash_table_t *ht)
 		if (!ht->array[i])
 			continue;
 		value = hash_table_get(ht, ht->array[i]->key);
-		if (flag == 0)
-		{
-			printf("'%s': '%s'", ht->array[i]->key, value);
-			flag = 1;
-		}
-		else
-		{
+		if (flag == 1)
 			printf(", ");
-			printf("'%s': '%s'", ht->array[i]->key, value);
-		}
+		printf("'%s': '%s'", ht->array[i]->key, value);
+		flag = 1;
 	}
 	printf("}\n");
 }
