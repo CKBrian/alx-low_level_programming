@@ -35,8 +35,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	strcpy(temp->key, key);
 	strcpy(temp->value, value);
 
-	if (temp == NULL)
-		temp->next = NULL;
+	temp->next = NULL;
+	if (ht->array[index] && strcmp(key, ht->array[index]->key) == 0)
+		free(ht->array[index]);
 	else
 		temp->next = ht->array[index];
 
