@@ -80,11 +80,12 @@ void linked_list_set(shash_table_t *ht, shash_node_t *temp, const char *key)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	shash_node_t *temp, *stemp = ht->shead;
+	shash_node_t *temp, *stemp;
 
 	if (ht == NULL || key == NULL || strcmp(key, "") == 0)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
+	stemp = ht->shead;
 	while (ht->array[index] && stemp)
 	{
 		if (strcmp(key, stemp->key) == 0)
@@ -95,18 +96,17 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 				return (0);
 			return (1);
 		}
-		stemp = stemp->snext;
-	}
+		stemp = stemp->snext; }
 	temp = malloc(sizeof(shash_node_t));
 	if (!temp)
 		return (0);
-	temp->key = malloc(sizeof(shash_node_t));
+	temp->key = malloc(sizeof(char) * strlen(key) + 1);
 	if (!temp->key)
 	{
 		free(temp);
 		return (0);
 	}
-	temp->value = malloc(sizeof(shash_node_t));
+	temp->value = malloc(sizeof(char) * strlen(value) + 1);
 	if (!temp->value)
 	{
 		free(temp->key);
