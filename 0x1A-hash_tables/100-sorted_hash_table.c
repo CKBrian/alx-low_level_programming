@@ -80,12 +80,23 @@ void linked_list_set(shash_table_t *ht, shash_node_t *temp, const char *key)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	shash_node_t *temp;
+	shash_node_t *temp, *stemp = ht->shead;
 
 	if (ht == NULL || key == NULL || strcmp(key, "") == 0)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
-
+	while (ht->array[index] && stemp)
+	{
+		if (strcmp(key, stemp->key) == 0)
+		{
+			free(stemp->value);
+			stemp->value = strdup(value);
+			if (!stemp->value)
+				return (0);
+			return (1);
+		}
+		stemp = stemp->snext;
+	}
 	temp = malloc(sizeof(shash_node_t));
 	if (!temp)
 		return (0);
@@ -102,19 +113,10 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		free(temp);
 		return (0);
 	}
-
 	strcpy(temp->key, key);
 	strcpy(temp->value, value);
-
-	temp->next = NULL;
-	if (ht->array[index] && strcmp(key, ht->array[index]->key) == 0)
-		free(ht->array[index]);
-	else
-		temp->next = ht->array[index];
-
+	temp->next = ht->array[index];
 	ht->array[index] = temp;
-
-	/*sorted linked list*/
 	linked_list_set(ht, temp, key);
 	return (1);
 }
