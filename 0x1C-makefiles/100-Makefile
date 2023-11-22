@@ -10,6 +10,8 @@ CC = gcc #compiler
 
 CFLAGS = -Wall -Werror -Wextra -pedantic # C FLAGS
 
+.PHONY: all clean oclean fclean re # .PHONY ensures targets are always executed
+
 #all: builds your executable
 all: m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
