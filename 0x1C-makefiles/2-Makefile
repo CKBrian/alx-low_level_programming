@@ -11,16 +11,13 @@ OBJ = main.o school.o
 NAME = school
 
 #default rule
-all: $(NAME)
+#all: $(NAME)
 
 #rule to make an executable file
-$(NAME): $(OBJ)
+all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 #rule to make object files
 %.o : %.c
 	$(CC) -c $< -o $@
 
-#clean up
-clean:
-	rm -f $(OBJ)
