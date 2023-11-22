@@ -11,7 +11,7 @@ CC = gcc #compiler
 CFLAGS = -Wall -Werror -Wextra -pedantic # C FLAGS
 
 #all: builds your executable
-all: $(OBJ) m.h
+all: m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 #clean: deletes all Emacs and Vim temporary files along with the executable
