@@ -4,7 +4,7 @@ SRC = main.c school.c #Source files
 
 OBJ = $(SRC:.c=.o) #Object files using pattern search
 
-#CC = gcc #compiler
+CC = gcc #compiler
 
 #RM = rm -f #program to delete ifiles
 
