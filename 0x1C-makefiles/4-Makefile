@@ -1,0 +1,29 @@
+NAME = school#Executable
+
+SRC = main.c school.c #Source files
+
+OBJ = $(SRC:.c=.o) #Object files using pattern search
+
+CC = gcc #compiler
+
+RM = rm -f #program to delete files
+
+CFLAGS = -Wall -Werror -Wextra -pedantic # C FLAGS
+
+#all: builds your executable
+all: $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+#clean: deletes all Emacs and Vim temporary files along with the executable
+clean:
+	$(RM) *.swp *~ $(NAME)
+
+#oclean: deletes the object files
+oclean:
+	$(RM) *.o
+
+#fclean: deletes all Emacs and Vim temporary files, the executable, and the object files
+fclean: clean oclean
+
+#re: forces recompilation of all source files
+re: fclean all
