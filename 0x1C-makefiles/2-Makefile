@@ -5,7 +5,7 @@ CC = gcc
 SRC = main.c school.c
 
 #object files
-OBJ = main.o school.o
+OBJ = $(SRC:.c=.o)#main.o school.o
 
 #executable's name
 NAME = school
