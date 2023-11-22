@@ -1,0 +1,12 @@
+#source files
+SRC = main.c school.c
+
+#compiler
+CC = gcc
+
+#defalt rule
+all: school
+
+#rule to create executable
+school: $(SRC)
+	$(CC) $(SRC) -o school
