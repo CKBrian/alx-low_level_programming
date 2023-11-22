@@ -12,7 +12,7 @@ FLAGS = -Wall -Werror -Wextra -pedantic # C FLAGS
 
 #all: builds your executable
 all: $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) m.h -o $(NAME)
 
 #clean: deletes all Emacs and Vim temporary files along with the executable
 clean:
