@@ -1,7 +1,12 @@
-#Target file
-#school.o, main.o: main.c school.c
-#	gcc -c school.c main.c
-#files
-#files := school.c main.c
-school: school.c main.c
-	gcc school.c main.c -o school
+#Source files
+SRCS := school.c main.c
+
+#Executable file
+EXEC := school
+
+#default rule
+all: $(EXEC)
+
+#Rule to build executable
+$(EXEC): $(SRCS)
+	gcc $(SRCS) -o $(EXEC)
