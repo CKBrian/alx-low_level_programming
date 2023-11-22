@@ -20,3 +20,7 @@ $(NAME): $(OBJ)
 #rule to make object files
 %.o : %.c
 	$(CC) -c $< -o $@
+
+#clean up
+clean:
+	rm -f $(OBJ)
