@@ -1,12 +1,6 @@
-#Source files
-SRCS := school.c main.c
-
-#Executable file
-EXEC := school
-
 #default rule
-all: $(EXEC)
+all: school
 
 #Rule to build executable
-$(EXEC): $(SRCS)
-	gcc $(SRCS) -o $(EXEC)
+school: school.c main.c
+	gcc school.c main.c -o school
