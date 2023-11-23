@@ -6,7 +6,7 @@
 
 def island_perimeter(grid):
     """returns the perimeter of the island described in grid"""
-    if len(grid) == 0:
+    if len(grid) == 0 or not isinstance(grid, list):
         return 0
     length = 0
     i = 0
