@@ -9,28 +9,23 @@
  */
 int jump_search(int *array, size_t size, int value)
 {
-	int l_bd, u_bd, i, jump_int, idx = size - 1;
+	int l_bd, u_bd, i, interval, idx = size - 1;
 
 	if (array == NULL)
 		return (-1);
-	jump_int = sqrt(size);
-	for (i = 0; i <= idx; i += jump_int)
+	interval = sqrt(size);
+	for (i = 0; i <= idx || (i > idx && value <= array[idx]); i += interval)
 	{
-		if (value <= array[i])
+		if (value == array[0] && i == 0)
+			continue;
+		if ((value <= array[i] && i <= idx) || (i > idx && value <= array[idx]))
 		{
-			l_bd = i - jump_int;
+			l_bd = i - interval;
 			u_bd = i;
 			printf("Value found between indexes [%d] and [%d]\n", l_bd, u_bd);
 			break;
 		}
 		printf("Value checked array[%d] = [%d]\n", i, array[i]);
-	}
-
-	if (value > array[i - jump_int] && value <= array[idx])
-	{
-		l_bd = i - jump_int;
-		u_bd = i;
-		printf("Value found between indexes [%d] and [%d]\n", l_bd, u_bd);
 	}
 
 	/* checks if value searched is out of range */
@@ -39,7 +34,7 @@ int jump_search(int *array, size_t size, int value)
 
 	if (l_bd < 0)
 		l_bd = 0;
-	if (u_bd > 0)
+	if (u_bd > idx)
 		u_bd = idx;
 	/* linear search algorithm*/
 	for (i = l_bd; i <= u_bd && i <= idx; i++)
