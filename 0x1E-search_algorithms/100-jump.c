@@ -11,7 +11,7 @@ int jump_search(int *array, size_t size, int value)
 {
 	int l_bd, u_bd, i, interval, idx = size - 1;
 
-	if (array == NULL)
+	if (array == NULL || value < array[0])
 		return (-1);
 	interval = sqrt(size);
 	for (i = 0; i <= idx || (i > idx && value <= array[idx]); i += interval)
