@@ -32,10 +32,6 @@ int jump_search(int *array, size_t size, int value)
 	if (value > array[idx])
 		return (-1);
 
-	if (l_bd < 0)
-		l_bd = 0;
-	if (u_bd > idx)
-		u_bd = idx;
 	/* linear search algorithm*/
 	for (i = l_bd; i <= u_bd && i <= idx; i++)
 	{
