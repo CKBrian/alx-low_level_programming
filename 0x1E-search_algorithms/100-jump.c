@@ -29,7 +29,7 @@ int jump_search(int *array, size_t size, int value)
 	interval = sqrt(size);
 	for (i = 0; i < size; i += interval)
 	{
-	if (value <= array[i] || i >= idx)
+	if (i >= idx || value <= array[i])
 	{
 		l_bd = i - interval;
 		u_bd = i;
