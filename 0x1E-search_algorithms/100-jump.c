@@ -8,7 +8,7 @@
 size_t min(size_t num1, size_t num2)
 {
 	if (num1 > num2)
-		return (num2);
+	return (num2);
 	return (num1);
 }
 /**
@@ -24,28 +24,27 @@ int jump_search(int *array, size_t size, int value)
 	size_t l_bd, u_bd, i, interval, idx = size - 1;
 
 	if (array == NULL || size == 0 || value < array[0])
-		return (-1);
+	return (-1);
+
 	interval = sqrt(size);
-	for (i = 0; i <= idx || (i > idx); i += interval)
+	for (i = 0; i < size; i += interval)
 	{
-		if (value == array[0] && i == 0)
-			continue;
-		if ((value <= array[i] && i <= idx) || (i > idx))
-		{
-			l_bd = i - interval;
-			u_bd = i;
-			printf("Value found between indexes [%ld] and [%ld]\n", l_bd, u_bd);
-			break;
-		}
-		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+	if (value <= array[i] || i >= idx)
+	{
+		l_bd = i - interval;
+		u_bd = i;
+		printf("Value found between indexes [%ld] and [%ld]\n", l_bd, u_bd);
+		break;
+	}
+	printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 	}
 
 	/* linear search algorithm*/
 	for (i = l_bd; i <= min(u_bd, idx); i++)
 	{
-		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
-		if (value == array[i])
-			return (i);
+	printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+	if (value == array[i])
+		return (i);
 	}
 	return (-1);
 }
