@@ -76,24 +76,32 @@ int search_algorithm(int *array, size_t l_bound, size_t r_bound, int value)
  */
 int exponential_search(int *array, size_t size, int value)
 {
-
 	size_t low = 0, high = size - 1, pos = 1;
 
 	if (array == NULL || size == 0 || value < array[0])
 		return (-1);
-	while (pos < high || (pos > high && value <= array[high]))
+
+	while (pos <= high)
 	{
-		if (value <= array[pos] || (pos > high && value <= array[high]))
+		if (value == array[pos])
+		{
+			printf("Value found at index: %ld\n", pos);
+			return (pos);
+		}
+		else if (value < array[pos] || pos == high)
 		{
 			low = pos / 2;
 			high = min(pos, high);
-			printf("Value found between indexes [%ld] and [%ld]\n",
-					low, high);
+			printf("Value found between indexes [%ld] and [%ld]\n", low, high);
 			break;
 		}
-		printf("Value checked array[%ld] = [%d]\n", pos, array[pos]);
-		pos *= 2;
+		else
+		{
+			printf("Value checked array[%ld] = [%d]\n", pos, array[pos]);
+			pos *= 2;
+		}
 	}
+
 	return (search_algorithm(array, low, high, value));
 }
 
