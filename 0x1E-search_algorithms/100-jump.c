@@ -26,11 +26,11 @@ int jump_search(int *array, size_t size, int value)
 	if (array == NULL || size == 0 || value < array[0])
 		return (-1);
 	interval = sqrt(size);
-	for (i = 0; i <= idx || (i > idx /*&& value <= array[idx]*/); i += interval)
+	for (i = 0; i <= idx || (i > idx ); i += interval)
 	{
 		if (value == array[0] && i == 0)
 			continue;
-		if ((value <= array[i] && i <= idx) || (i > idx /*&& value >= array[idx]*/))
+		if ((value <= array[i] && i <= idx) || (i > idx ))
 		{
 			l_bd = i - interval;
 			u_bd = i;
