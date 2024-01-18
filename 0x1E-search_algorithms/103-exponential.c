@@ -81,14 +81,9 @@ int exponential_search(int *array, size_t size, int value)
 	if (array == NULL || size == 0 || value < array[0])
 		return (-1);
 
-	while (pos <= high)
+	while (pos <= high || pos > high)
 	{
-		if (value == array[pos])
-		{
-			printf("Value found at index: %ld\n", pos);
-			return (pos);
-		}
-		else if (value < array[pos] || pos == high)
+		if (pos >= high || value <= array[pos])
 		{
 			low = pos / 2;
 			high = min(pos, high);
@@ -104,4 +99,3 @@ int exponential_search(int *array, size_t size, int value)
 
 	return (search_algorithm(array, low, high, value));
 }
-
